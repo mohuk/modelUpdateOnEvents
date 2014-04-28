@@ -1,0 +1,38 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <title>Mohammad Umair Khan Modules</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+   <!-- <link rel="stylesheet" href="styles/main.css"> -->
+</head>
+<body ng-app="UKhan">
+  <div ng-controller="MainCtrl">
+    <h5>Update model on specific events using angular directives</h5>
+    <section>
+      Update on blur:
+      <input uk-model-update-on blur ng-model="updateOnBlur">
+      <span ng-bind="updateOnBlur"></span>
+    </section>
+    <section>
+      Update on enter:
+      <input uk-model-update-on enter ng-model="updateOnEnter">
+      <span ng-bind="updateOnEnter"></span>
+    </section>
+    <section>
+      Update on custom event on submit:
+      <input uk-model-update-on submit="updateMyModel" ng-model="updateOnSubmit">
+      <span ng-bind="updateOnSubmit"></span>
+      <input type="button" uk-submit="updateMyModel" value="update through custom event">
+    </section>
+    <section>
+      Update on custom event with function and arguments on submit:
+      <input uk-model-update-on submit="updateMyModelAgain" ng-model="updateOnSubmitAgain">
+      <span ng-bind="updateOnSubmitAgain"></span>
+      <input type="button" uk-submit="updateMyModelAgain" on-submit="onSubmitForModel" args="['Model','Updated']"value="update through custom event with func and args">
+    </section>
+  </div>
+  <script src="controllers/MainCtrl.js"></script>
+  <script src="directives/ukModelUpdateOn.js"></script>
+  <script src="directives/ukSubmit.js"></script>
+</body>
+</html>
